@@ -14,11 +14,11 @@ public class FPNumberRunner {
 //        int sum = normalSum(numbers);
 //        System.out.println(sum);
 //
-//        int sum = fpSum(numbers);
-//        System.out.println(sum);
-//
-        int sum = normalSumWithFiltering(numbers);
+        int sum = fpSum(numbers);
         System.out.println(sum);
+//
+//        int sum = normalSumWithFiltering(numbers);
+//        System.out.println(sum);
 
 //        int sum = fpSumWithFiltering(numbers);
 //        System.out.println(sum);
@@ -32,7 +32,11 @@ public class FPNumberRunner {
     private static int fpSum(List<Integer> numbers) {    // here we are just saying what to do
                                                         // in fp we avoid mutation of variable and we focus on telling
                                                         // what to do
-        return numbers.stream().reduce(0, (number1, number2) -> number1 + number2);
+        return numbers.stream()
+                .reduce(0, (number1, number2) -> {     // lambda expression: in the lambda expression, we create method
+                    System.out.println(number1 + " " +number2);  // definition in shortcut format; a lambda expression
+                    return number1 + number2;                   // has parameters (number1, number2) and has a body: sout and
+                });                                             // return
     }
 
 
