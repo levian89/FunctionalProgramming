@@ -7,6 +7,11 @@ public class FPNumberRunner {
     public static void main(String[] args) {
         List<Integer> numbers = new ArrayList<>(List.of(4,6,8,13,3,15));
 
+        //Imperative style of programming (OOP and structured programming) (we are telling what to do, how to do it,
+        //and the code is undergoing mutation of the variables) vs functional programming
+        // which allows a declarative style of programming (you just tell what to do);
+
+
 //        printBasic(numbers);
 //
 //        printWithFP(numbers);
