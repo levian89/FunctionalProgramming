@@ -32,11 +32,30 @@ class NumberSquareMapper implements Function<Integer,Integer> {   // Function - 
 
 public class LambdaBehindTheScreensRunner {
 
+    //1.Storing functions into variables
+    //2.Passing functions to methods
+    //3.Returning functions from methods
+    //These are all possible only because of functional interfaces
+
 
     public static void main(String[] args) {
+
+        Predicate<Integer> evenPredicate = n -> n % 2 == 0;
+        Predicate<Integer> oddPredicate = n -> n % 2 == 1;
+
+        List.of(23, 43, 34, 45, 36, 48).stream()
+                .filter(evenPredicate) // 1. this is storing functions in variables
+                .map(n -> n*n)  // 2. we are passing a method, a function to a method
+                .forEach(n-> System.out.println(n));
+
+        List.of(23, 43, 34, 45, 36, 48).stream()
+                .filter(createEvenPredicate()) // 3. this is returning a function/method back from a method
+                .map(n -> n*n)  // 2. we are passing a method, a function to a method
+                .forEach(n-> System.out.println(n));
+
         List.of(23, 43, 34, 45, 36, 48).stream()
                 .filter(n -> n%2==0)
-                .map(n -> n*n)
+                .map(n -> n*n)  // 2. we are passing a method, a function to a method
                 .forEach(n-> System.out.println(n));
 
         List.of(23, 43, 34, 45, 36, 48).stream()
@@ -58,5 +77,9 @@ public class LambdaBehindTheScreensRunner {
         //R apply(T t);
 
 
+    }
+
+    private static Predicate<Integer> createEvenPredicate() {
+        return n -> n % 2 == 0;
     }
 }
